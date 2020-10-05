@@ -4,6 +4,7 @@
     See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
 */
 
+#include "VisualStudioToolchainTests.h"
 #include "Ishiko/TestFramework/TestFrameworkCore.h"
 
 using namespace Ishiko::Tests;
@@ -11,6 +12,9 @@ using namespace Ishiko::Tests;
 int main(int argc, char* argv[])
 {
     TestHarness theTestHarness("CodeSmithyBuildToolchains");
+
+    TestSequence& theTests = theTestHarness.tests();
+    theTests.append<VisualStudioToolchainTests>();
 
     return theTestHarness.run();
 }
