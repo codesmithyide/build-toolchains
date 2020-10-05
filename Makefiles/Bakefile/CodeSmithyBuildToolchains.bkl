@@ -28,6 +28,13 @@ library CodeSmithyBuildToolchains
 
     headers
     {
+        ../../Include/CodeSmithy/BuildToolchains/VisualStudioToolchain.h
+
         ../../Include/CodeSmithy/BuildToolchains/linkoptions.h
+    }
+
+    sources
+    {
+        ../../Source/VisualStudioToolchain.cpp
     }
 }

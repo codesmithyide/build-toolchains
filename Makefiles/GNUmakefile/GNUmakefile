@@ -45,13 +45,30 @@ _false :=
 _not    = $(if $(1),$(_false),$(_true_))
 _equal  = $(and $(findstring $(1),$(2)),$(findstring $(2),$(1)))
 
+
+# The directory for the build files, may be overridden on make command line.
+builddir = .
+
+ifneq ($(builddir),.)
+_builddir := $(if $(findstring $(abspath $(builddir)),$(builddir)),,../../)$(builddir)/../GNUmakefile/
+_builddir_error := $(shell mkdir -p $(_builddir) 2>&1)
+$(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_error)))
+endif
 all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a
 
-../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a:
-	$(AR) rc $@ 
+../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a: $(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o
+	$(AR) rc $@ $(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o
 	$(RANLIB) $@
 
+$(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o: ../../Source/VisualStudioToolchain.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/VisualStudioToolchain.cpp
+
 clean:
+	rm -f $(_builddir)*.o
+	rm -f $(_builddir)*.d
 	rm -f ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a
 
 .PHONY: all clean
+
+# Dependencies tracking:
+-include $(_builddir)*.d
