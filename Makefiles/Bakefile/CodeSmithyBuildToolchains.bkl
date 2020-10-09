@@ -1,3 +1,6 @@
+ishikopath = envvar("ISHIKO_CPP");
+import $(ishikopath)/Process/Include/Ishiko/Process.bkl;
+
 toolsets = gnu vs2017 vs2015 vs2013;
 
 gnu.makefile = ../GNUmakefile/GNUmakefile;
@@ -5,7 +8,7 @@ vs2017.solutionfile = ../VC15/CodeSmithyBuildToolchains.sln;
 vs2015.solutionfile = ../VC14/CodeSmithyBuildToolchains.sln;
 vs2013.solutionfile = ../VC12/CodeSmithyBuildToolchains.sln;
 
-library CodeSmithyBuildToolchains
+library CodeSmithyBuildToolchains : IshikoProcess
 {
     includedirs += ../../Include/CodeSmithy/BuildToolchains;
 
@@ -28,6 +31,7 @@ library CodeSmithyBuildToolchains
 
     headers
     {
+        ../../Include/CodeSmithy/BuildToolchains/BuildToolchainErrorCategory.h
         ../../Include/CodeSmithy/BuildToolchains/VisualStudioToolchain.h
 
         ../../Include/CodeSmithy/BuildToolchains/linkoptions.h
@@ -35,6 +39,7 @@ library CodeSmithyBuildToolchains
 
     sources
     {
+        ../../Source/BuildToolchainErrorCategory.cpp
         ../../Source/VisualStudioToolchain.cpp
     }
 }

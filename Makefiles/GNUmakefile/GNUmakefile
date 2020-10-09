@@ -33,6 +33,13 @@ override CXXFLAGS += -O2
 else ifneq (,$(config))
 $(warning Unknown configuration "$(config)")
 endif
+#
+# Additionally, this makefile is customizable with the following
+# settings:
+#
+#      ISHIKO_CPP_ERRORS_ROOT   Path to the Ishiko Errors installation
+#      BOOST_ROOT               Path to the Boost installation
+#      ISHIKO_CPP_PROCESS_ROOT  Path to the Ishiko Process installation
 
 # Use "make RANLIB=''" for platforms without ranlib.
 RANLIB ?= ranlib
@@ -54,14 +61,31 @@ _builddir := $(if $(findstring $(abspath $(builddir)),$(builddir)),,../../)$(bui
 _builddir_error := $(shell mkdir -p $(_builddir) 2>&1)
 $(if $(_builddir_error),$(error Failed to create build directory: $(_builddir_error)))
 endif
+
+# ------------
+# Configurable settings:
+# 
+
+# Path to the Ishiko Errors installation
+ISHIKO_CPP_ERRORS_ROOT ?= $(ISHIKO_CPP)/Errors
+# Path to the Boost installation
+BOOST_ROOT ?= $(BOOST)
+# Path to the Ishiko Process installation
+ISHIKO_CPP_PROCESS_ROOT ?= $(ISHIKO_CPP)/Process
+
+# ------------
+
 all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a
 
-../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a: $(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o
-	$(AR) rc $@ $(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o
+../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a: $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o
+	$(AR) rc $@ $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o
 	$(RANLIB) $@
 
+$(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o: ../../Source/BuildToolchainErrorCategory.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/BuildToolchainErrorCategory.cpp
+
 $(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o: ../../Source/VisualStudioToolchain.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/VisualStudioToolchain.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/VisualStudioToolchain.cpp
 
 clean:
 	rm -f $(_builddir)*.o
