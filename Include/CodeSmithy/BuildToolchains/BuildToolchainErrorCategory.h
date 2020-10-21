@@ -9,6 +9,7 @@
 
 #include <Ishiko/Errors/ErrorCategory.h>
 #include <Ishiko/Errors/Error.h>
+#include <string>
 
 namespace CodeSmithy
 {
@@ -24,6 +25,8 @@ public:
 
     static const BuildToolchainErrorCategory& Get() noexcept;
 
+    const char* name() const noexcept override;
+
 private:
     BuildToolchainErrorCategory() noexcept = default;
 };
@@ -31,6 +34,8 @@ private:
 void Fail(Ishiko::Error& error, BuildToolchainErrorCategory::EErrorValues value) noexcept;
 void Fail(Ishiko::Error& error, BuildToolchainErrorCategory::EErrorValues value, const std::string& message,
     const char* file, int line) noexcept;
+void Throw(BuildToolchainErrorCategory::EErrorValues value, const std::string& message, const char* file, int line);
+
 }
 
 #endif

@@ -18,7 +18,8 @@ class VisualStudioToolchain
 public:
     VisualStudioToolchain();
 
-    void build(const std::string& makefilePath, Ishiko::Error& error) const;
+    void build(const std::string& makefilePath) const;
+    void build(const std::string& makefilePath, Ishiko::Error& error) const noexcept;
 
 private:
     std::string m_devenvPath;
