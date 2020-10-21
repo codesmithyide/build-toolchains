@@ -5,6 +5,7 @@
 */
 
 #include "BuildToolchainErrorCategory.h"
+#include <Ishiko/Errors/Exception.h>
 
 using namespace Ishiko;
 
@@ -17,6 +18,11 @@ const BuildToolchainErrorCategory& BuildToolchainErrorCategory::Get() noexcept
     return theCategory;
 }
 
+const char* BuildToolchainErrorCategory::name() const noexcept
+{
+    return "CodeSmithy::BuildToolchainErrorCategory";
+}
+
 void Fail(Error& error, BuildToolchainErrorCategory::EErrorValues value) noexcept
 {
     error.fail(value, BuildToolchainErrorCategory::Get());
@@ -26,6 +32,11 @@ void Fail(Error& error, BuildToolchainErrorCategory::EErrorValues value, const s
     int line) noexcept
 {
     error.fail(value, BuildToolchainErrorCategory::Get(), message, file, line);
+}
+
+void Throw(BuildToolchainErrorCategory::EErrorValues value, const std::string& message, const char* file, int line)
+{
+    throw Exception(value, BuildToolchainErrorCategory::Get(), message, file, line);
 }
 
 }
