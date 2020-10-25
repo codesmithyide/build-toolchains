@@ -20,7 +20,7 @@
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\VisualStudioToolchain.h">
+    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\MSBuildToolchain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\linkoptions.h">
@@ -31,7 +31,7 @@
     <ClCompile Include="..\..\Source\BuildToolchainErrorCategory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\VisualStudioToolchain.cpp">
+    <ClCompile Include="..\..\Source\MSBuildToolchain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

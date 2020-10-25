@@ -32,7 +32,7 @@ library CodeSmithyBuildToolchains : IshikoProcess
     headers
     {
         ../../Include/CodeSmithy/BuildToolchains/BuildToolchainErrorCategory.h
-        ../../Include/CodeSmithy/BuildToolchains/VisualStudioToolchain.h
+        ../../Include/CodeSmithy/BuildToolchains/MSBuildToolchain.h
 
         ../../Include/CodeSmithy/BuildToolchains/linkoptions.h
     }
@@ -40,6 +40,6 @@ library CodeSmithyBuildToolchains : IshikoProcess
     sources
     {
         ../../Source/BuildToolchainErrorCategory.cpp
-        ../../Source/VisualStudioToolchain.cpp
+        ../../Source/MSBuildToolchain.cpp
     }
 }

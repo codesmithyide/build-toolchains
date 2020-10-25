@@ -4,7 +4,7 @@
     See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
 */
 
-#include "VisualStudioToolchain.h"
+#include "MSBuildToolchain.h"
 #include "BuildToolchainErrorCategory.h"
 #include <Ishiko/Process/ChildProcessBuilder.h>
 
