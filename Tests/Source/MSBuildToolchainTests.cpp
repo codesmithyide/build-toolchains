@@ -17,7 +17,7 @@ MSBuildToolchainTests::MSBuildToolchainTests(const TestNumber& number, const Tes
 
 void MSBuildToolchainTests::ConstructorTest1(Test& test)
 {
-    CodeSmithy::VisualStudioToolchain toolchain;
+    CodeSmithy::MSBuildToolchain toolchain;
     
     ISHTF_PASS();
 }

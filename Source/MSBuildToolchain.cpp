@@ -14,14 +14,14 @@ using namespace Ishiko::Process;
 namespace CodeSmithy
 {
 
-VisualStudioToolchain::VisualStudioToolchain()
-    : m_devenvPath("C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv.exe")
+MSBuildToolchain::MSBuildToolchain()
+    : m_msbuildPath("C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv.exe")
 {
 }
 
-void VisualStudioToolchain::build(const std::string& makefilePath) const
+void MSBuildToolchain::build(const std::string& makefilePath) const
 {
-    std::string commandLine = m_devenvPath;
+    std::string commandLine = m_msbuildPath;
     commandLine.append(" ");
     commandLine.append(makefilePath);
     commandLine.append(" /build ");
@@ -37,9 +37,9 @@ void VisualStudioToolchain::build(const std::string& makefilePath) const
     }
 }
 
-void VisualStudioToolchain::build(const std::string& makefilePath, Error& error) const noexcept
+void MSBuildToolchain::build(const std::string& makefilePath, Error& error) const noexcept
 {
-    std::string commandLine = m_devenvPath;
+    std::string commandLine = m_msbuildPath;
     commandLine.append(" ");
     commandLine.append(makefilePath);
     commandLine.append(" /build ");
@@ -58,9 +58,9 @@ void VisualStudioToolchain::build(const std::string& makefilePath, Error& error)
     }
 }
 
-void VisualStudioToolchain::build(const std::string& makefilePath, const Environment& environment) const
+void MSBuildToolchain::build(const std::string& makefilePath, const Environment& environment) const
 {
-    std::string commandLine = m_devenvPath;
+    std::string commandLine = m_msbuildPath;
     commandLine.append(" ");
     commandLine.append(makefilePath);
     commandLine.append(" /build ");
