@@ -52,9 +52,27 @@ void VisualStudioToolchain::build(const std::string& makefilePath, Error& error)
         int exitCode = processHandle.exitCode();
         if (exitCode != 0)
         {
-            Fail(error, BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code " + std::to_string(exitCode),
-                __FILE__, __LINE__);
+            Fail(error, BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine
+                + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
         }
+    }
+}
+
+void VisualStudioToolchain::build(const std::string& makefilePath, const Environment& environment) const
+{
+    std::string commandLine = m_devenvPath;
+    commandLine.append(" ");
+    commandLine.append(makefilePath);
+    commandLine.append(" /build ");
+    commandLine.append("Debug|x64");
+
+    ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine, environment);
+    processHandle.waitForExit();
+    int exitCode = processHandle.exitCode();
+    if (exitCode != 0)
+    {
+        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code "
+            + std::to_string(exitCode), __FILE__, __LINE__);
     }
 }
 

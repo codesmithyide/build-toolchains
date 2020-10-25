@@ -8,6 +8,7 @@
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_VISUALSTUDIOTOOLCHAIN_H_
 
 #include <Ishiko/Errors/Error.h>
+#include <Ishiko/Process/Environment.h>
 #include <string>
 
 namespace CodeSmithy
@@ -20,6 +21,7 @@ public:
 
     void build(const std::string& makefilePath) const;
     void build(const std::string& makefilePath, Ishiko::Error& error) const noexcept;
+    void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const;
 
 private:
     std::string m_devenvPath;
