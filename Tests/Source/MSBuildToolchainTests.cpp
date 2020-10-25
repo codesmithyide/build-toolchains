@@ -9,13 +9,13 @@
 
 using namespace Ishiko::Tests;
 
-VisualStudioToolchainTests::VisualStudioToolchainTests(const TestNumber& number, const TestEnvironment& environment)
-    : TestSequence(number, "VisualStudioToolchain tests", environment)
+MSBuildToolchainTests::MSBuildToolchainTests(const TestNumber& number, const TestEnvironment& environment)
+    : TestSequence(number, "MSBuildToolchain tests", environment)
 {
     append<HeapAllocationErrorsTest>("Constructor test 1", ConstructorTest1);
 }
 
-void VisualStudioToolchainTests::ConstructorTest1(Test& test)
+void MSBuildToolchainTests::ConstructorTest1(Test& test)
 {
     CodeSmithy::VisualStudioToolchain toolchain;
     
