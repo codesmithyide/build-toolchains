@@ -4,8 +4,8 @@
     See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
 */
 
-#include "VisualStudioToolchainTests.h"
-#include "CodeSmithy/BuildToolchains/VisualStudioToolchain.h"
+#include "MSBuildToolchainTests.h"
+#include "CodeSmithy/BuildToolchains/MSBuildToolchain.h"
 
 using namespace Ishiko::Tests;
 
