@@ -13,6 +13,19 @@ using namespace Ishiko::Process;
 namespace CodeSmithy
 {
 
+namespace
+{
+
+std::string CreateCommandLine(const std::string& msbuildPath, const std::string& makefilePath)
+{
+    std::string commandLine = msbuildPath;
+    commandLine.append(" -property:Platform=x64 ");
+    commandLine.append(makefilePath);
+    return commandLine;
+}
+
+}
+
 MSBuildToolchain::MSBuildToolchain()
     : m_msbuildPath("C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\MSBuild\\15.0\\Bin\\MSBuild.exe")
 {
@@ -20,10 +33,7 @@ MSBuildToolchain::MSBuildToolchain()
 
 void MSBuildToolchain::build(const std::string& makefilePath) const
 {
-    std::string commandLine = m_msbuildPath;
-    commandLine.append(" -property:Platform=x64 ");
-    commandLine.append(makefilePath);
-
+    std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
     ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine);
     processHandle.waitForExit();
     int exitCode = processHandle.exitCode();
@@ -36,10 +46,7 @@ void MSBuildToolchain::build(const std::string& makefilePath) const
 
 void MSBuildToolchain::build(const std::string& makefilePath, Error& error) const noexcept
 {
-    std::string commandLine = m_msbuildPath;
-    commandLine.append(" -property:Platform=x64 ");
-    commandLine.append(makefilePath);
-
+    std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
     ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine, error);
     if (!error)
     {
@@ -55,10 +62,7 @@ void MSBuildToolchain::build(const std::string& makefilePath, Error& error) cons
 
 void MSBuildToolchain::build(const std::string& makefilePath, const Environment& environment) const
 {
-    std::string commandLine = m_msbuildPath;
-    commandLine.append(" -property:Platform=x64 ");
-    commandLine.append(makefilePath);
-
+    std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
     ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine, environment);
     processHandle.waitForExit();
     int exitCode = processHandle.exitCode();
