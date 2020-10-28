@@ -5,7 +5,6 @@
 */
 
 #include "BuildToolchainErrorCategory.h"
-#include <Ishiko/Errors/Exception.h>
 
 using namespace Ishiko;
 

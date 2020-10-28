@@ -6,7 +6,6 @@
 
 #include "MSBuildToolchain.h"
 #include "BuildToolchainErrorCategory.h"
-#include <Ishiko/Process/ChildProcessBuilder.h>
 
 using namespace Ishiko;
 using namespace Ishiko::Process;
@@ -15,17 +14,15 @@ namespace CodeSmithy
 {
 
 MSBuildToolchain::MSBuildToolchain()
-    : m_msbuildPath("C:/Program Files (x86)/Microsoft Visual Studio/2017/Community/Common7/IDE/devenv.exe")
+    : m_msbuildPath("C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\MSBuild\\15.0\\Bin\\MSBuild.exe")
 {
 }
 
 void MSBuildToolchain::build(const std::string& makefilePath) const
 {
     std::string commandLine = m_msbuildPath;
-    commandLine.append(" ");
+    commandLine.append(" -property:Platform=x64 ");
     commandLine.append(makefilePath);
-    commandLine.append(" /build ");
-    commandLine.append("Debug|x64");
 
     ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine);
     processHandle.waitForExit();
@@ -40,10 +37,8 @@ void MSBuildToolchain::build(const std::string& makefilePath) const
 void MSBuildToolchain::build(const std::string& makefilePath, Error& error) const noexcept
 {
     std::string commandLine = m_msbuildPath;
-    commandLine.append(" ");
+    commandLine.append(" -property:Platform=x64 ");
     commandLine.append(makefilePath);
-    commandLine.append(" /build ");
-    commandLine.append("Debug|x64");
 
     ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine, error);
     if (!error)
@@ -61,10 +56,8 @@ void MSBuildToolchain::build(const std::string& makefilePath, Error& error) cons
 void MSBuildToolchain::build(const std::string& makefilePath, const Environment& environment) const
 {
     std::string commandLine = m_msbuildPath;
-    commandLine.append(" ");
+    commandLine.append(" -property:Platform=x64 ");
     commandLine.append(makefilePath);
-    commandLine.append(" /build ");
-    commandLine.append("Debug|x64");
 
     ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine, environment);
     processHandle.waitForExit();

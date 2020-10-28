@@ -7,8 +7,7 @@
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAINERRORCATEGORY_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAINERRORCATEGORY_H_
 
-#include <Ishiko/Errors/ErrorCategory.h>
-#include <Ishiko/Errors/Error.h>
+#include <Ishiko/Errors.h>
 #include <string>
 
 namespace CodeSmithy

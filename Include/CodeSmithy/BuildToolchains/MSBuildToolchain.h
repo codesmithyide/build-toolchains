@@ -7,8 +7,8 @@
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_MSBUILDTOOLCHAIN_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_MSBUILDTOOLCHAIN_H_
 
-#include <Ishiko/Errors/Error.h>
-#include <Ishiko/Process/Environment.h>
+#include <Ishiko/Errors.h>
+#include <Ishiko/Process.h>
 #include <string>
 
 namespace CodeSmithy
