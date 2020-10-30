@@ -77,15 +77,15 @@ ISHIKO_CPP_PROCESS_ROOT ?= $(ISHIKO_CPP)/Process
 
 all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a
 
-../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a: $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o
-	$(AR) rc $@ $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o
+../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a: $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_MSBuildToolchain.o
+	$(AR) rc $@ $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_MSBuildToolchain.o
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o: ../../Source/BuildToolchainErrorCategory.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/BuildToolchainErrorCategory.cpp
 
-$(_builddir)CodeSmithyBuildToolchains_VisualStudioToolchain.o: ../../Source/VisualStudioToolchain.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/VisualStudioToolchain.cpp
+$(_builddir)CodeSmithyBuildToolchains_MSBuildToolchain.o: ../../Source/MSBuildToolchain.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/MSBuildToolchain.cpp
 
 clean:
 	rm -f $(_builddir)*.o
