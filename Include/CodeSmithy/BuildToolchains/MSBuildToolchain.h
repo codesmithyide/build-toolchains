@@ -22,6 +22,8 @@ public:
     void build(const std::string& makefilePath) const;
     void build(const std::string& makefilePath, Ishiko::Error& error) const noexcept;
     void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const;
+    void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment,
+        Ishiko::Error& error) const noexcept;
 
 private:
     std::string m_msbuildPath;

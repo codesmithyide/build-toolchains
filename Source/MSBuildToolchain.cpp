@@ -34,7 +34,7 @@ MSBuildToolchain::MSBuildToolchain()
 void MSBuildToolchain::build(const std::string& makefilePath) const
 {
     std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
-    ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine);
+    ChildProcess processHandle = ChildProcess::Spawn(commandLine);
     processHandle.waitForExit();
     int exitCode = processHandle.exitCode();
     if (exitCode != 0)
@@ -47,7 +47,7 @@ void MSBuildToolchain::build(const std::string& makefilePath) const
 void MSBuildToolchain::build(const std::string& makefilePath, Error& error) const noexcept
 {
     std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
-    ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine, error);
+    ChildProcess processHandle = ChildProcess::Spawn(commandLine, error);
     if (!error)
     {
         processHandle.waitForExit();
@@ -63,13 +63,30 @@ void MSBuildToolchain::build(const std::string& makefilePath, Error& error) cons
 void MSBuildToolchain::build(const std::string& makefilePath, const Environment& environment) const
 {
     std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
-    ChildProcess processHandle = ChildProcessBuilder::StartProcess(commandLine, environment);
+    ChildProcess processHandle = ChildProcess::Spawn(commandLine, environment);
     processHandle.waitForExit();
     int exitCode = processHandle.exitCode();
     if (exitCode != 0)
     {
         Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code "
             + std::to_string(exitCode), __FILE__, __LINE__);
+    }
+}
+
+void MSBuildToolchain::build(const std::string& makefilePath, const Environment& environment,
+    Error& error) const noexcept
+{
+    std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
+    ChildProcess processHandle = ChildProcess::Spawn(commandLine, environment, error);
+    if (!error)
+    {
+        processHandle.waitForExit();
+        int exitCode = processHandle.exitCode();
+        if (exitCode != 0)
+        {
+            Fail(error, BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine
+                + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
+        }
     }
 }
 
