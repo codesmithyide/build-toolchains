@@ -7,4 +7,15 @@
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_MAKETOOLCHAIN_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_MAKETOOLCHAIN_H_
 
+namespace CodeSmithy
+{
+
+class MakeToolchain
+{
+};
+
+}
+
+#include "linkoptions.h"
+
 #endif
