@@ -20,6 +20,9 @@
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h">
       <Filter>Header Files</Filter>
     </ClInclude>

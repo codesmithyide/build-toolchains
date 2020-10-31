@@ -7,6 +7,7 @@
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_MSBUILDTOOLCHAIN_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_MSBUILDTOOLCHAIN_H_
 
+#include "BuildToolchain.h"
 #include <Ishiko/Errors.h>
 #include <Ishiko/Process.h>
 #include <string>
@@ -14,7 +15,7 @@
 namespace CodeSmithy
 {
 
-class MSBuildToolchain
+class MSBuildToolchain : public BuildToolchain
 {
 public:
     MSBuildToolchain();

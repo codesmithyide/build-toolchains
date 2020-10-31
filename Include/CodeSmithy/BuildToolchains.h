@@ -7,6 +7,7 @@
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_H_
 
+#include "BuildToolchain.h"
 #include "BuildToolchainErrorCategory.h"
 #include "MakeToolchain.h"
 #include "MSBuildToolchain.h"

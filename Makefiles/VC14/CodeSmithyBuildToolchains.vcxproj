@@ -156,6 +156,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains.h" />
+    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchain.h" />
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h" />
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\linkoptions.h" />
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\MakeToolchain.h" />

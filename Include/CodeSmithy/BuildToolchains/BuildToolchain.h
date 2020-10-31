@@ -4,16 +4,16 @@
     See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
 */
 
-#ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_MAKETOOLCHAIN_H_
-#define _CODESMITHYIDE_BUILDTOOLCHAINS_MAKETOOLCHAIN_H_
-
-#include "BuildToolchain.h"
+#ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAIN_H_
+#define _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAIN_H_
 
 namespace CodeSmithy
 {
 
-class MakeToolchain : public BuildToolchain
+class BuildToolchain
 {
+public:
+    virtual ~BuildToolchain() = default;
 };
 
 }
