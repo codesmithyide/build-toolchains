@@ -8,6 +8,8 @@
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_MAKETOOLCHAIN_H_
 
 #include "BuildToolchain.h"
+#include <Ishiko/Process.h>
+#include <string>
 
 namespace CodeSmithy
 {
@@ -15,7 +17,12 @@ namespace CodeSmithy
 class MakeToolchain : public BuildToolchain
 {
 public:
+    MakeToolchain();
+
     void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const override;
+
+private:
+    std::string m_makePath;
 };
 
 }

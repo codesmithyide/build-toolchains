@@ -5,13 +5,45 @@
 */
 
 #include "MakeToolchain.h"
+#include "BuildToolchainErrorCategory.h"
+#include <boost/filesystem/path.hpp>
+
+using namespace Ishiko::Process;
 
 namespace CodeSmithy
 {
 
+MakeToolchain::MakeToolchain()
+    : m_makePath("/usr/bin/make")
+{
+}
+
+namespace
+{
+
+std::string CreateCommandLine(const std::string& makePath, const std::string& makefilePath)
+{
+    std::string commandLine = makePath;
+    commandLine.append(" -C ");
+    commandLine.append(boost::filesystem::path(makefilePath).parent_path().string());
+    commandLine.append(" -f ");
+    commandLine.append(boost::filesystem::path(makefilePath).filename().string());
+    return commandLine;
+}
+
+}
+
 void MakeToolchain::build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const
 {
-    // TODO
+    std::string commandLine = CreateCommandLine(m_makePath, makefilePath);
+    ChildProcess processHandle = ChildProcess::Spawn(commandLine, environment);
+    processHandle.waitForExit();
+    int exitCode = processHandle.exitCode();
+    if (exitCode != 0)
+    {
+        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code "
+            + std::to_string(exitCode), __FILE__, __LINE__);
+    }
 };
 
 }
