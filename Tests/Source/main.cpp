@@ -4,6 +4,7 @@
     See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
 */
 
+#include "MakeToolchainTests.h"
 #include "MSBuildToolchainTests.h"
 #include "Ishiko/TestFramework/TestFrameworkCore.h"
 
@@ -14,6 +15,7 @@ int main(int argc, char* argv[])
     TestHarness theTestHarness("CodeSmithyBuildToolchains");
 
     TestSequence& theTests = theTestHarness.tests();
+    theTests.append<MakeToolchainTests>();
     theTests.append<MSBuildToolchainTests>();
 
     return theTestHarness.run();

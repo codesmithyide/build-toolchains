@@ -25,12 +25,14 @@ program CodeSmithyBuildToolchainsTests : CodeSmithyBuildToolchains, IshikoTestFr
 
     headers
     {
+        ../../Source/MakeToolchainTests.h
         ../../Source/MSBuildToolchainTests.h
     }
 
     sources
     {
         ../../Source/main.cpp
+        ../../Source/MakeToolchainTests.cpp
         ../../Source/MSBuildToolchainTests.cpp
     }
 }
