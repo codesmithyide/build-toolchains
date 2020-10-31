@@ -77,11 +77,14 @@ CODESMITHYIDE_BUILDTOOLCHAINS_ROOT ?= $(CODESMITHYIDE)/BuildToolchains
 
 all: $(_builddir)CodeSmithyBuildToolchainsTests
 
-$(_builddir)CodeSmithyBuildToolchainsTests: $(_builddir)CodeSmithyBuildToolchainsTests_main.o $(_builddir)CodeSmithyBuildToolchainsTests_MSBuildToolchainTests.o
-	$(CXX) -o $@ $(LDFLAGS) $(_builddir)CodeSmithyBuildToolchainsTests_main.o $(_builddir)CodeSmithyBuildToolchainsTests_MSBuildToolchainTests.o -L$(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/Lib -L$(ISHIKO_CPP_ERRORS_ROOT)/Lib -L$(BOOST_ROOT)/lib -L$(ISHIKO_CPP_PROCESS_ROOT)/Lib -L$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Lib -lCodeSmithyBuildToolchains -lIshikoTestFrameworkCore -lIshikoProcess -lIshikoErrors -lboost_filesystem -pthread
+$(_builddir)CodeSmithyBuildToolchainsTests: $(_builddir)CodeSmithyBuildToolchainsTests_main.o $(_builddir)CodeSmithyBuildToolchainsTests_MakeToolchainTests.o $(_builddir)CodeSmithyBuildToolchainsTests_MSBuildToolchainTests.o
+	$(CXX) -o $@ $(LDFLAGS) $(_builddir)CodeSmithyBuildToolchainsTests_main.o $(_builddir)CodeSmithyBuildToolchainsTests_MakeToolchainTests.o $(_builddir)CodeSmithyBuildToolchainsTests_MSBuildToolchainTests.o -L$(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/Lib -L$(ISHIKO_CPP_ERRORS_ROOT)/Lib -L$(BOOST_ROOT)/lib -L$(ISHIKO_CPP_PROCESS_ROOT)/Lib -L$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Lib -lCodeSmithyBuildToolchains -lIshikoTestFrameworkCore -lIshikoProcess -lIshikoErrors -lboost_filesystem -pthread
 
 $(_builddir)CodeSmithyBuildToolchainsTests_main.o: ../../Source/main.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Include -std=c++11 ../../Source/main.cpp
+
+$(_builddir)CodeSmithyBuildToolchainsTests_MakeToolchainTests.o: ../../Source/MakeToolchainTests.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Include -std=c++11 ../../Source/MakeToolchainTests.cpp
 
 $(_builddir)CodeSmithyBuildToolchainsTests_MSBuildToolchainTests.o: ../../Source/MSBuildToolchainTests.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -pthread -I$(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I$(ISHIKO_CPP_TESTFRAMEWORK_ROOT)/Include -std=c++11 ../../Source/MSBuildToolchainTests.cpp
