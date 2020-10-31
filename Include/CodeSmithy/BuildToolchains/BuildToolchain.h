@@ -7,6 +7,9 @@
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAIN_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAIN_H_
 
+#include <Ishiko/Process.h>
+#include <string>
+
 namespace CodeSmithy
 {
 
@@ -14,6 +17,8 @@ class BuildToolchain
 {
 public:
     virtual ~BuildToolchain() = default;
+
+    virtual void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const = 0;
 };
 
 }

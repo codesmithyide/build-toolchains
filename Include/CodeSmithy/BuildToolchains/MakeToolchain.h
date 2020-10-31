@@ -14,6 +14,8 @@ namespace CodeSmithy
 
 class MakeToolchain : public BuildToolchain
 {
+public:
+    void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const override;
 };
 
 }

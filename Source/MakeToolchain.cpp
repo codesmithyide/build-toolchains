@@ -5,3 +5,13 @@
 */
 
 #include "MakeToolchain.h"
+
+namespace CodeSmithy
+{
+
+void MakeToolchain::build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const
+{
+    // TODO
+};
+
+}

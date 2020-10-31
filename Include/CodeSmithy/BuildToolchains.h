@@ -7,11 +7,11 @@
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_H_
 
-#include "BuildToolchain.h"
-#include "BuildToolchainErrorCategory.h"
-#include "MakeToolchain.h"
-#include "MSBuildToolchain.h"
+#include "BuildToolchains/BuildToolchain.h"
+#include "BuildToolchains/BuildToolchainErrorCategory.h"
+#include "BuildToolchains/MakeToolchain.h"
+#include "BuildToolchains/MSBuildToolchain.h"
 
-#include "linkoptions.h"
+#include "BuildToolchains/linkoptions.h"
 
 #endif
