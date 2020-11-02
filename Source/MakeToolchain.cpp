@@ -33,7 +33,7 @@ std::string CreateCommandLine(const std::string& makePath, const std::string& ma
 
 }
 
-void MakeToolchain::build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const
+void MakeToolchain::build(const std::string& makefilePath, const Environment& environment) const
 {
     std::string commandLine = CreateCommandLine(m_makePath, makefilePath);
     ChildProcess processHandle = ChildProcess::Spawn(commandLine, environment);

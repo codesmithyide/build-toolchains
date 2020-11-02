@@ -5,3 +5,14 @@
 */
 
 #include "CMakeToolchain.h"
+
+using namespace Ishiko::Process;
+
+namespace CodeSmithy
+{
+
+void CMakeToolchain::build(const std::string& makefilePath, const Environment& environment) const
+{
+}
+
+}

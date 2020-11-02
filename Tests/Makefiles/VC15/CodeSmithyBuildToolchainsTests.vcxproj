@@ -152,11 +152,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\CMakeToolchainTests.cpp" />
     <ClCompile Include="..\..\Source\main.cpp" />
     <ClCompile Include="..\..\Source\MakeToolchainTests.cpp" />
     <ClCompile Include="..\..\Source\MSBuildToolchainTests.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Source\CMakeToolchainTests.h" />
     <ClInclude Include="..\..\Source\MakeToolchainTests.h" />
     <ClInclude Include="..\..\Source\MSBuildToolchainTests.h" />
   </ItemGroup>
