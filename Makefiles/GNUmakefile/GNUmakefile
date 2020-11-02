@@ -83,12 +83,15 @@ ISHIKO_CPP_PROCESS_ROOT ?= $(ISHIKO_CPP)/Process
 
 all: ../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a
 
-../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a: $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_MakeToolchain.o $(_builddir)CodeSmithyBuildToolchains_MSBuildToolchain.o
-	$(AR) rc $@ $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_MakeToolchain.o $(_builddir)CodeSmithyBuildToolchains_MSBuildToolchain.o
+../Bakefile/../../Lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuildToolchains-d,CodeSmithyBuildToolchains).a: $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_CMakeToolchain.o $(_builddir)CodeSmithyBuildToolchains_MakeToolchain.o $(_builddir)CodeSmithyBuildToolchains_MSBuildToolchain.o
+	$(AR) rc $@ $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o $(_builddir)CodeSmithyBuildToolchains_CMakeToolchain.o $(_builddir)CodeSmithyBuildToolchains_MakeToolchain.o $(_builddir)CodeSmithyBuildToolchains_MSBuildToolchain.o
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o: ../../Source/BuildToolchainErrorCategory.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_TEXT_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/BuildToolchainErrorCategory.cpp
+
+$(_builddir)CodeSmithyBuildToolchains_CMakeToolchain.o: ../../Source/CMakeToolchain.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_TEXT_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/CMakeToolchain.cpp
 
 $(_builddir)CodeSmithyBuildToolchains_MakeToolchain.o: ../../Source/MakeToolchain.cpp
 	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_TEXT_ROOT)/Include -I$(ISHIKO_CPP_ERRORS_ROOT)/Include -I$(ISHIKO_CPP_PLATFORM_ROOT)/Include -I$(BOOST_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/Include -I../../Include/CodeSmithy/BuildToolchains -std=c++11 ../../Source/MakeToolchain.cpp

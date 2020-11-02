@@ -151,6 +151,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\BuildToolchainErrorCategory.cpp" />
+    <ClCompile Include="..\..\Source\CMakeToolchain.cpp" />
     <ClCompile Include="..\..\Source\MakeToolchain.cpp" />
     <ClCompile Include="..\..\Source\MSBuildToolchain.cpp" />
   </ItemGroup>
@@ -158,6 +159,7 @@
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains.h" />
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchain.h" />
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h" />
+    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\CMakeToolchain.h" />
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\linkoptions.h" />
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\MakeToolchain.h" />
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\MSBuildToolchain.h" />
