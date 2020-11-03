@@ -17,8 +17,12 @@ namespace CodeSmithy
 class CMakeToolchain : public BuildToolchain
 {
 public:
+    CMakeToolchain();
+
     void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const override;
 
+private:
+    std::string m_cmakePath;
 };
 
 }

@@ -13,11 +13,6 @@ using namespace Ishiko::Process;
 namespace CodeSmithy
 {
 
-MakeToolchain::MakeToolchain()
-    : m_makePath("/usr/bin/make")
-{
-}
-
 namespace
 {
 
@@ -31,6 +26,11 @@ std::string CreateCommandLine(const std::string& makePath, const std::string& ma
     return commandLine;
 }
 
+}
+
+MakeToolchain::MakeToolchain()
+    : m_makePath("/usr/bin/make")
+{
 }
 
 void MakeToolchain::build(const std::string& makefilePath, const Environment& environment) const
