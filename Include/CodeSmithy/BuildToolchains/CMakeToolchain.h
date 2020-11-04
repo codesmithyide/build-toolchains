@@ -7,19 +7,18 @@
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_CMAKETOOLCHAIN_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_CMAKETOOLCHAIN_H_
 
-#include "BuildToolchain.h"
 #include <Ishiko/Process.h>
 #include <string>
 
 namespace CodeSmithy
 {
 
-class CMakeToolchain : public BuildToolchain
+class CMakeToolchain
 {
 public:
     CMakeToolchain();
 
-    void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const override;
+    void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const;
 
 private:
     std::string m_cmakePath;

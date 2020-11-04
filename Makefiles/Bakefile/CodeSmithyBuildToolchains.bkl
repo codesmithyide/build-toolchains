@@ -33,7 +33,6 @@ library CodeSmithyBuildToolchains : IshikoProcess
     {
         ../../Include/CodeSmithy/BuildToolchains.h
 
-        ../../Include/CodeSmithy/BuildToolchains/BuildToolchain.h
         ../../Include/CodeSmithy/BuildToolchains/BuildToolchainErrorCategory.h
         ../../Include/CodeSmithy/BuildToolchains/CMakeToolchain.h
         ../../Include/CodeSmithy/BuildToolchains/linkoptions.h
