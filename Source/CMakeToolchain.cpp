@@ -41,7 +41,14 @@ CMakeToolchain::CMakeToolchain()
 {
 }
 
-void CMakeToolchain::build(const std::string& makefilePath, const Environment& environment) const
+void CMakeToolchain::generate(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const
+{
+    CMakeGenerationOptions options;
+    generate(makefilePath, options, environment);
+}
+
+void CMakeToolchain::generate(const std::string& makefilePath, const CMakeGenerationOptions& options,
+    const Ishiko::Process::Environment& environment) const
 {
     std::string generationCommandLine = CreateGenerationCommandLine(m_cmakePath, makefilePath);
     ChildProcess generationProcess = ChildProcess::Spawn(generationCommandLine, environment);
@@ -52,10 +59,14 @@ void CMakeToolchain::build(const std::string& makefilePath, const Environment& e
         Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + generationCommandLine
             + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
     }
+}
+
+void CMakeToolchain::build(const std::string& makefilePath, const Environment& environment) const
+{
     std::string buildCommandLine = CreateBuildCommandLine(m_cmakePath, makefilePath);
     ChildProcess buildProcess = ChildProcess::Spawn(buildCommandLine, environment);
     buildProcess.waitForExit();
-    exitCode = buildProcess.exitCode();
+    int exitCode = buildProcess.exitCode();
     if (exitCode != 0)
     {
         Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + buildCommandLine

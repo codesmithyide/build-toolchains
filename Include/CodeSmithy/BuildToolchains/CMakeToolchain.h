@@ -7,6 +7,7 @@
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_CMAKETOOLCHAIN_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_CMAKETOOLCHAIN_H_
 
+#include "CMakeGenerationOptions.h"
 #include <Ishiko/Process.h>
 #include <string>
 
@@ -17,6 +18,10 @@ class CMakeToolchain
 {
 public:
     CMakeToolchain();
+
+    void generate(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const;
+    void generate(const std::string& makefilePath, const CMakeGenerationOptions& options,
+        const Ishiko::Process::Environment& environment) const;
 
     void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const;
 
