@@ -33,8 +33,9 @@ library CodeSmithyBuildToolchains : IshikoProcess
     {
         ../../Include/CodeSmithy/BuildToolchains.h
 
-        ../../Include/CodeSmithy/BuildToolchains/BuildToolchain.h
         ../../Include/CodeSmithy/BuildToolchains/BuildToolchainErrorCategory.h
+        ../../Include/CodeSmithy/BuildToolchains/CMakeGenerationOptions.h
+        ../../Include/CodeSmithy/BuildToolchains/CMakeToolchain.h
         ../../Include/CodeSmithy/BuildToolchains/linkoptions.h
         ../../Include/CodeSmithy/BuildToolchains/MakeToolchain.h
         ../../Include/CodeSmithy/BuildToolchains/MSBuildToolchain.h
@@ -43,6 +44,8 @@ library CodeSmithyBuildToolchains : IshikoProcess
     sources
     {
         ../../Source/BuildToolchainErrorCategory.cpp
+        ../../Source/CMakeGenerationOptions.cpp
+        ../../Source/CMakeToolchain.cpp
         ../../Source/MakeToolchain.cpp
         ../../Source/MSBuildToolchain.cpp
     }

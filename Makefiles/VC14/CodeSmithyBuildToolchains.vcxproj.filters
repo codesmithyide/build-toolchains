@@ -20,10 +20,13 @@
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchain.h">
+    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h">
+    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\CMakeGenerationOptions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\CMakeToolchain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\linkoptions.h">
@@ -38,6 +41,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Source\BuildToolchainErrorCategory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CMakeGenerationOptions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\CMakeToolchain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Source\MakeToolchain.cpp">
