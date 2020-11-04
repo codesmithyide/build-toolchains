@@ -50,27 +50,27 @@ void CMakeToolchain::generate(const std::string& makefilePath, const Ishiko::Pro
 void CMakeToolchain::generate(const std::string& makefilePath, const CMakeGenerationOptions& options,
     const Ishiko::Process::Environment& environment) const
 {
-    std::string generationCommandLine = CreateGenerationCommandLine(m_cmakePath, makefilePath);
-    ChildProcess generationProcess = ChildProcess::Spawn(generationCommandLine, environment);
-    generationProcess.waitForExit();
-    int exitCode = generationProcess.exitCode();
+    std::string  commandLine = CreateGenerationCommandLine(m_cmakePath, makefilePath);
+    ChildProcess process = ChildProcess::Spawn(commandLine, environment);
+    process.waitForExit();
+    int exitCode = process.exitCode();
     if (exitCode != 0)
     {
-        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + generationCommandLine
-            + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
+        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code "
+            + std::to_string(exitCode), __FILE__, __LINE__);
     }
 }
 
 void CMakeToolchain::build(const std::string& makefilePath, const Environment& environment) const
 {
-    std::string buildCommandLine = CreateBuildCommandLine(m_cmakePath, makefilePath);
-    ChildProcess buildProcess = ChildProcess::Spawn(buildCommandLine, environment);
-    buildProcess.waitForExit();
-    int exitCode = buildProcess.exitCode();
+    std::string commandLine = CreateBuildCommandLine(m_cmakePath, makefilePath);
+    ChildProcess process = ChildProcess::Spawn(commandLine, environment);
+    process.waitForExit();
+    int exitCode = process.exitCode();
     if (exitCode != 0)
     {
-        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + buildCommandLine
-            + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
+        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code "
+            + std::to_string(exitCode), __FILE__, __LINE__);
     }
 }
 
