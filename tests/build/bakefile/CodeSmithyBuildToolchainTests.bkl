@@ -25,16 +25,16 @@ program CodeSmithyBuildToolchainsTests : CodeSmithyBuildToolchains, IshikoTests
 
     headers
     {
-        ../../Source/CMakeToolchainTests.h
-        ../../Source/MakeToolchainTests.h
-        ../../Source/MSBuildToolchainTests.h
+        ../../src/CMakeToolchainTests.h
+        ../../src/MakeToolchainTests.h
+        ../../src/MSBuildToolchainTests.h
     }
 
     sources
     {
-        ../../Source/CMakeToolchainTests.cpp
-        ../../Source/main.cpp
-        ../../Source/MakeToolchainTests.cpp
-        ../../Source/MSBuildToolchainTests.cpp
+        ../../src/CMakeToolchainTests.cpp
+        ../../src/main.cpp
+        ../../src/MakeToolchainTests.cpp
+        ../../src/MSBuildToolchainTests.cpp
     }
 }

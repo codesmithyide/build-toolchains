@@ -152,15 +152,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\CMakeToolchainTests.cpp" />
-    <ClCompile Include="..\..\Source\main.cpp" />
-    <ClCompile Include="..\..\Source\MakeToolchainTests.cpp" />
-    <ClCompile Include="..\..\Source\MSBuildToolchainTests.cpp" />
+    <ClCompile Include="..\..\src\CMakeToolchainTests.cpp" />
+    <ClCompile Include="..\..\src\main.cpp" />
+    <ClCompile Include="..\..\src\MakeToolchainTests.cpp" />
+    <ClCompile Include="..\..\src\MSBuildToolchainTests.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\CMakeToolchainTests.h" />
-    <ClInclude Include="..\..\Source\MakeToolchainTests.h" />
-    <ClInclude Include="..\..\Source\MSBuildToolchainTests.h" />
+    <ClInclude Include="..\..\src\CMakeToolchainTests.h" />
+    <ClInclude Include="..\..\src\MakeToolchainTests.h" />
+    <ClInclude Include="..\..\src\MSBuildToolchainTests.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

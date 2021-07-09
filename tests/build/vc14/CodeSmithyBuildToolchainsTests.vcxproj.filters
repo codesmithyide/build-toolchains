@@ -17,27 +17,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\CMakeToolchainTests.h">
+    <ClInclude Include="..\..\src\CMakeToolchainTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MakeToolchainTests.h">
+    <ClInclude Include="..\..\src\MakeToolchainTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\MSBuildToolchainTests.h">
+    <ClInclude Include="..\..\src\MSBuildToolchainTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\CMakeToolchainTests.cpp">
+    <ClCompile Include="..\..\src\CMakeToolchainTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\main.cpp">
+    <ClCompile Include="..\..\src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\MakeToolchainTests.cpp">
+    <ClCompile Include="..\..\src\MakeToolchainTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\MSBuildToolchainTests.cpp">
+    <ClCompile Include="..\..\src\MSBuildToolchainTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
