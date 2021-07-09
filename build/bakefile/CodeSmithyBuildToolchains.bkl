@@ -31,22 +31,21 @@ library CodeSmithyBuildToolchains : IshikoProcess
 
     headers
     {
-        ../../Include/CodeSmithy/BuildToolchains.h
-
-        ../../Include/CodeSmithy/BuildToolchains/BuildToolchainErrorCategory.h
-        ../../Include/CodeSmithy/BuildToolchains/CMakeGenerationOptions.h
-        ../../Include/CodeSmithy/BuildToolchains/CMakeToolchain.h
-        ../../Include/CodeSmithy/BuildToolchains/linkoptions.h
-        ../../Include/CodeSmithy/BuildToolchains/MakeToolchain.h
-        ../../Include/CodeSmithy/BuildToolchains/MSBuildToolchain.h
+        ../../include/CodeSmithy/BuildToolchains.h
+        ../../include/CodeSmithy/BuildToolchains/BuildToolchainErrorCategory.h
+        ../../include/CodeSmithy/BuildToolchains/CMakeGenerationOptions.h
+        ../../include/CodeSmithy/BuildToolchains/CMakeToolchain.h
+        ../../include/CodeSmithy/BuildToolchains/linkoptions.h
+        ../../include/CodeSmithy/BuildToolchains/MakeToolchain.h
+        ../../include/CodeSmithy/BuildToolchains/MSBuildToolchain.h
     }
 
     sources
     {
-        ../../Source/BuildToolchainErrorCategory.cpp
-        ../../Source/CMakeGenerationOptions.cpp
-        ../../Source/CMakeToolchain.cpp
-        ../../Source/MakeToolchain.cpp
-        ../../Source/MSBuildToolchain.cpp
+        ../../src/BuildToolchainErrorCategory.cpp
+        ../../src/CMakeGenerationOptions.cpp
+        ../../src/CMakeToolchain.cpp
+        ../../src/MakeToolchain.cpp
+        ../../src/MSBuildToolchain.cpp
     }
 }
