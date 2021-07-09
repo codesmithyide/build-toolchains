@@ -69,17 +69,17 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <TargetName>CodeSmithyBuildToolchains-d</TargetName>
-    <OutDir>..\Bakefile\..\..\lib\$(Platform)\</OutDir>
+    <OutDir>..\bakefile\..\..\lib\$(Platform)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>CodeSmithyBuildToolchains-d</TargetName>
-    <OutDir>..\Bakefile\..\..\lib\$(Platform)\</OutDir>
+    <OutDir>..\bakefile\..\..\lib\$(Platform)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\Bakefile\..\..\lib\$(Platform)\</OutDir>
+    <OutDir>..\bakefile\..\..\lib\$(Platform)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>..\Bakefile\..\..\lib\$(Platform)\</OutDir>
+    <OutDir>..\bakefile\..\..\lib\$(Platform)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -150,20 +150,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\BuildToolchainErrorCategory.cpp" />
-    <ClCompile Include="..\..\Source\CMakeGenerationOptions.cpp" />
-    <ClCompile Include="..\..\Source\CMakeToolchain.cpp" />
-    <ClCompile Include="..\..\Source\MakeToolchain.cpp" />
-    <ClCompile Include="..\..\Source\MSBuildToolchain.cpp" />
+    <ClCompile Include="..\..\src\BuildToolchainErrorCategory.cpp" />
+    <ClCompile Include="..\..\src\CMakeGenerationOptions.cpp" />
+    <ClCompile Include="..\..\src\CMakeToolchain.cpp" />
+    <ClCompile Include="..\..\src\MakeToolchain.cpp" />
+    <ClCompile Include="..\..\src\MSBuildToolchain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains.h" />
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h" />
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\CMakeGenerationOptions.h" />
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\CMakeToolchain.h" />
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\linkoptions.h" />
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\MakeToolchain.h" />
-    <ClInclude Include="..\..\Include\CodeSmithy\BuildToolchains\MSBuildToolchain.h" />
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains.h" />
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h" />
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\CMakeGenerationOptions.h" />
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\CMakeToolchain.h" />
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\linkoptions.h" />
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\MakeToolchain.h" />
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\MSBuildToolchain.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
