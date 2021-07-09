@@ -1,7 +1,7 @@
 setting CODESMITHYIDE_BUILDTOOLCHAINS_ROOT
 {
     help = "Path to the CodeSmithyIDE/BuildToolchains installation";
-    default = '$(CODESMITHYIDE)/BuildToolchains';
+    default = '$(CODESMITHYIDE)/build-toolchains';
 }
 
 template CodeSmithyBuildToolchains

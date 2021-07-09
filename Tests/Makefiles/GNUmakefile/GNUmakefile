@@ -86,7 +86,7 @@ ISHIKO_CPP_PROCESS_ROOT ?= $(ISHIKO_CPP)/process
 # Path to the Ishiko Tests installation
 ISHIKO_CPP_TESTS_ROOT ?= $(ISHIKO_CPP)/tests
 # Path to the CodeSmithyIDE/BuildToolchains installation
-CODESMITHYIDE_BUILDTOOLCHAINS_ROOT ?= $(CODESMITHYIDE)/BuildToolchains
+CODESMITHYIDE_BUILDTOOLCHAINS_ROOT ?= $(CODESMITHYIDE)/build-toolchains
 
 # ------------
 

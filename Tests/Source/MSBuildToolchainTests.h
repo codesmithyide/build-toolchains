@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2020 Xavier Leclercq
+    Copyright (c) 2020-2021 Xavier Leclercq
     Released under the MIT License
     See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
 */
@@ -7,7 +7,7 @@
 #ifndef _CODESMITHYIDE_TEST_BUILDTOOLCHAINS_MSBUILDTOOLCHAINTESTS_H_
 #define _CODESMITHYIDE_TEST_BUILDTOOLCHAINS_MSBUILDTOOLCHAINTESTS_H_
 
-#include "Ishiko/TestFramework/TestFrameworkCore.h"
+#include <Ishiko/Tests.h>
 
 class MSBuildToolchainTests : public Ishiko::Tests::TestSequence
 {
