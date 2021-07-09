@@ -1,7 +1,7 @@
 ishikopath = envvar("ISHIKO_CPP");
-import $(ishikopath)/TestFramework/Include/Ishiko/TestFramework/TestFrameworkCore.bkl;
+import $(ishikopath)/tests/Include/Ishiko/Tests.bkl;
 codesmithyidepath = envvar("CODESMITHYIDE");
-import $(codesmithyidepath)/BuildToolchains/Include/CodeSmithy/CodeSmithyBuildToolchains.bkl;
+import $(codesmithyidepath)/build-toolchains/Include/CodeSmithy/CodeSmithyBuildToolchains.bkl;
 
 toolsets = gnu vs2017 vs2015 vs2013;
 
@@ -10,12 +10,12 @@ vs2017.solutionfile = ../VC15/CodeSmithyBuildToolchainsTests.sln;
 vs2015.solutionfile = ../VC14/CodeSmithyBuildToolchainsTests.sln;
 vs2013.solutionfile = ../VC12/CodeSmithyBuildToolchainsTests.sln;
 
-program CodeSmithyBuildToolchainsTests : CodeSmithyBuildToolchains, IshikoTestFrameworkCore
+program CodeSmithyBuildToolchainsTests : CodeSmithyBuildToolchains, IshikoTests
 {
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += CodeSmithyBuildToolchains IshikoTestFrameworkCore IshikoProcess IshikoErrors boost_filesystem;
+        libs += CodeSmithyBuildToolchains IshikoTests IshikoProcess IshikoText IshikoErrors boost_filesystem;
     }
 
     if ($(toolset) != gnu)
