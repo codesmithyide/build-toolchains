@@ -1,14 +1,14 @@
 ishikopath = envvar("ISHIKO_CPP");
-import $(ishikopath)/tests/Include/Ishiko/Tests.bkl;
+import $(ishikopath)/tests/include/Ishiko/Tests.bkl;
 codesmithyidepath = envvar("CODESMITHYIDE");
-import $(codesmithyidepath)/build-toolchains/Include/CodeSmithy/CodeSmithyBuildToolchains.bkl;
+import $(codesmithyidepath)/build-toolchains/include/CodeSmithy/CodeSmithyBuildToolchains.bkl;
 
 toolsets = gnu vs2017 vs2015 vs2013;
 
-gnu.makefile = ../GNUmakefile/GNUmakefile;
-vs2017.solutionfile = ../VC15/CodeSmithyBuildToolchainsTests.sln;
-vs2015.solutionfile = ../VC14/CodeSmithyBuildToolchainsTests.sln;
-vs2013.solutionfile = ../VC12/CodeSmithyBuildToolchainsTests.sln;
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2017.solutionfile = ../vc15/CodeSmithyBuildToolchainsTests.sln;
+vs2015.solutionfile = ../vc14/CodeSmithyBuildToolchainsTests.sln;
+vs2013.solutionfile = ../vc12/CodeSmithyBuildToolchainsTests.sln;
 
 program CodeSmithyBuildToolchainsTests : CodeSmithyBuildToolchains, IshikoTests
 {
