@@ -1,10 +1,10 @@
-# CodeSmithy - Build Toolchains
+# CodeSmithy Build Toolchains
 
 This project contains code to compile and link code using different toolchains such as GNU Make or MSBuild.
 
 ## License
 
-Copyright (c) 2020 Xavier Leclercq
+Copyright (c) 2020-2021 Xavier Leclercq
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
