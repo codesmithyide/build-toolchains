@@ -29,7 +29,7 @@ jobs:
           path: /codesmithyide/build-toolchains
       - run:
           name: Build
-          command: cd /codesmithyide/build-toolchains/Makefiles/GNUmakefile && make
+          command: cd /codesmithyide/build-toolchains/build/GNUmakefile && make
       - run:
           name: Test build
           command: cd /codesmithyide/build-toolchains/Tests/Makefiles/GNUmakefile && make
