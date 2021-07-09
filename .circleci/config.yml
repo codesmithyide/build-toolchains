@@ -6,36 +6,36 @@ jobs:
     steps:
       - run: 
           name: "Set CODESMITHYIDE environment variables"
-          command: echo 'export CODESMITHYIDE="/CodeSmithyIDE"' >> $BASH_ENV
+          command: echo 'export CODESMITHYIDE="/codesmithyide"' >> $BASH_ENV
       - checkout:
-          path: /CodeSmithyIDE/BuildToolchains
+          path: /codesmithyide/build-toolchains
       - run:
           name: Build
-          command: cd /CodeSmithyIDE/BuildToolchains/Makefiles/GNUmakefile && make
+          command: cd /codesmithyide/build-toolchains/build/gnumake && make
       - run:
           name: Test build
-          command: cd /CodeSmithyIDE/BuildToolchains/Tests/Makefiles/GNUmakefile && make
+          command: cd /codesmithyide/build-toolchains/tests/build/gnumake && make
       - run:
           name: Run the tests
-          command: cd /CodeSmithyIDE/BuildToolchains/Tests/Makefiles/GNUmakefile && ./CodeSmithyBuildToolchainsTests
+          command: cd /codesmithyide/build-toolchains/tests/build/gnumake && ./CodeSmithyBuildToolchainsTests
   build:
     docker:
       - image: codesmithy/gcc-build-prerequisites:0.1.0
     steps:
       - run:
           name: "Set CODESMITHYIDE environment variables"
-          command: echo 'export CODESMITHYIDE="/CodeSmithyIDE"' >> $BASH_ENV
+          command: echo 'export CODESMITHYIDE="/codesmithyide"' >> $BASH_ENV
       - checkout:
-          path: /CodeSmithyIDE/BuildToolchains
+          path: /codesmithyide/build-toolchains
       - run:
           name: Build
-          command: cd /CodeSmithyIDE/BuildToolchains/Makefiles/GNUmakefile && make
+          command: cd /codesmithyide/build-toolchains/build/gnumake && make
       - run:
           name: Test build
-          command: cd /CodeSmithyIDE/BuildToolchains/Tests/Makefiles/GNUmakefile && make
+          command: cd /codesmithyide/build-toolchains/tests/build/gnumake && make
       - run:
           name: Run the tests
-          command: cd /CodeSmithyIDE/BuildToolchains/Tests/Makefiles/GNUmakefile && ./CodeSmithyBuildToolchainsTests
+          command: cd /codesmithyide/build-toolchains/tests/build/gnumake && ./CodeSmithyBuildToolchainsTests
 workflows:
   version: 2
   build:

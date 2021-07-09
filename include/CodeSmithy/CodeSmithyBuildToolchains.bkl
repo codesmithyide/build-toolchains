@@ -1,0 +1,20 @@
+setting CODESMITHYIDE_BUILDTOOLCHAINS_ROOT
+{
+    help = "Path to the CodeSmithyIDE/BuildToolchains installation";
+    default = '$(CODESMITHYIDE)/build-toolchains';
+}
+
+template CodeSmithyBuildToolchains
+{
+    includedirs += $(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/include;
+
+    if ($(toolset) == gnu)
+    {
+        libdirs += $(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/lib;
+    }
+
+    if ($(toolset) != gnu)
+    {
+        libdirs += $(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/lib/$(arch);
+    }
+}
