@@ -3,10 +3,10 @@ import $(ishikopath)/process/include/Ishiko/Process.bkl;
 
 toolsets = gnu vs2017 vs2015 vs2013;
 
-gnu.makefile = ../GNUmakefile/GNUmakefile;
-vs2017.solutionfile = ../VC15/CodeSmithyBuildToolchains.sln;
-vs2015.solutionfile = ../VC14/CodeSmithyBuildToolchains.sln;
-vs2013.solutionfile = ../VC12/CodeSmithyBuildToolchains.sln;
+gnu.makefile = ../gnumake/GNUmakefile;
+vs2017.solutionfile = ../vc15/CodeSmithyBuildToolchains.sln;
+vs2015.solutionfile = ../vc14/CodeSmithyBuildToolchains.sln;
+vs2013.solutionfile = ../vc12/CodeSmithyBuildToolchains.sln;
 
 library CodeSmithyBuildToolchains : IshikoProcess
 {
