@@ -6,15 +6,15 @@ setting CODESMITHYIDE_BUILDTOOLCHAINS_ROOT
 
 template CodeSmithyBuildToolchains
 {
-    includedirs += $(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/Include;
+    includedirs += $(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/include;
 
     if ($(toolset) == gnu)
     {
-        libdirs += $(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/Lib;
+        libdirs += $(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/lib;
     }
 
     if ($(toolset) != gnu)
     {
-        libdirs += $(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/Lib/$(arch);
+        libdirs += $(CODESMITHYIDE_BUILDTOOLCHAINS_ROOT)/lib/$(arch);
     }
 }
