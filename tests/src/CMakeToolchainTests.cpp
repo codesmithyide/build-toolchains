@@ -1,16 +1,16 @@
 /*
-    Copyright (c) 2020 Xavier Leclercq
+    Copyright (c) 2020-2022 Xavier Leclercq
     Released under the MIT License
-    See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
+    See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
 
 #include "CMakeToolchainTests.h"
 #include "CodeSmithy/BuildToolchains/CMakeToolchain.h"
 
-using namespace Ishiko::Tests;
+using namespace Ishiko;
 
-CMakeToolchainTests::CMakeToolchainTests(const TestNumber& number, const TestEnvironment& environment)
-    : TestSequence(number, "CMakeToolchain tests", environment)
+CMakeToolchainTests::CMakeToolchainTests(const TestNumber& number, const TestContext& context)
+    : TestSequence(number, "CMakeToolchain tests", context)
 {
     append<HeapAllocationErrorsTest>("Constructor test 1", ConstructorTest1);
 }
@@ -19,5 +19,5 @@ void CMakeToolchainTests::ConstructorTest1(Test& test)
 {
     CodeSmithy::CMakeToolchain toolchain;
 
-    ISHTF_PASS();
+    ISHIKO_TEST_PASS();
 }
