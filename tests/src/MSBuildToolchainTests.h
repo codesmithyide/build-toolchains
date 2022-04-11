@@ -1,21 +1,21 @@
 /*
-    Copyright (c) 2020-2021 Xavier Leclercq
+    Copyright (c) 2020-2022 Xavier Leclercq
     Released under the MIT License
-    See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
+    See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
 
 #ifndef _CODESMITHYIDE_TEST_BUILDTOOLCHAINS_MSBUILDTOOLCHAINTESTS_H_
 #define _CODESMITHYIDE_TEST_BUILDTOOLCHAINS_MSBUILDTOOLCHAINTESTS_H_
 
-#include <Ishiko/Tests.h>
+#include <Ishiko/TestFramework.hpp>
 
-class MSBuildToolchainTests : public Ishiko::Tests::TestSequence
+class MSBuildToolchainTests : public Ishiko::TestSequence
 {
 public:
-    MSBuildToolchainTests(const Ishiko::Tests::TestNumber& number, const Ishiko::Tests::TestEnvironment& environment);
+    MSBuildToolchainTests(const Ishiko::TestNumber& number, const Ishiko::TestContext& context);
 
 private:
-    static void ConstructorTest1(Ishiko::Tests::Test& test);
+    static void ConstructorTest1(Ishiko::Test& test);
 };
 
 #endif

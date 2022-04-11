@@ -1,13 +1,13 @@
 /*
-    Copyright (c) 2020 Xavier Leclercq
+    Copyright (c) 2020-2022 Xavier Leclercq
     Released under the MIT License
-    See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
+    See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
 
 #ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAINERRORCATEGORY_H_
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAINERRORCATEGORY_H_
 
-#include <Ishiko/Errors.h>
+#include <Ishiko/Errors.hpp>
 #include <string>
 
 namespace CodeSmithy

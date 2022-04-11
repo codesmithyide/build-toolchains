@@ -1,15 +1,15 @@
 /*
-    Copyright (c) 2020-2021 Xavier Leclercq
+    Copyright (c) 2020-2022 Xavier Leclercq
     Released under the MIT License
-    See https://github.com/CodeSmithyIDE/BuildToolchains/blob/master/LICENSE.txt
+    See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
 
 #include "MakeToolchainTests.h"
 #include "MSBuildToolchainTests.h"
 #include "CMakeToolchainTests.h"
-#include <Ishiko/Tests.h>
+#include <Ishiko/TestFramework.hpp>
 
-using namespace Ishiko::Tests;
+using namespace Ishiko;
 
 int main(int argc, char* argv[])
 {
