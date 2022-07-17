@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2020 Xavier Leclercq
+    Copyright (c) 2020-2022 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
@@ -7,8 +7,6 @@
 #include "MakeToolchain.h"
 #include "BuildToolchainErrorCategory.h"
 #include <boost/filesystem/path.hpp>
-
-using namespace Ishiko::Process;
 
 namespace CodeSmithy
 {
@@ -33,10 +31,10 @@ MakeToolchain::MakeToolchain()
 {
 }
 
-void MakeToolchain::build(const std::string& makefilePath, const Environment& environment) const
+void MakeToolchain::build(const std::string& makefilePath, const Ishiko::Environment& environment) const
 {
     std::string commandLine = CreateCommandLine(m_makePath, makefilePath);
-    ChildProcess processHandle = ChildProcess::Spawn(commandLine, environment);
+    Ishiko::ChildProcess processHandle = Ishiko::ChildProcess::Spawn(commandLine, environment);
     processHandle.waitForExit();
     int exitCode = processHandle.exitCode();
     if (exitCode != 0)
