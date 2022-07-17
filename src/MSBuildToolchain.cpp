@@ -7,9 +7,6 @@
 #include "MSBuildToolchain.h"
 #include "BuildToolchainErrorCategory.h"
 
-using namespace Ishiko;
-using namespace Ishiko::Process;
-
 namespace CodeSmithy
 {
 
@@ -34,7 +31,7 @@ MSBuildToolchain::MSBuildToolchain()
 void MSBuildToolchain::build(const std::string& makefilePath) const
 {
     std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
-    ChildProcess processHandle = ChildProcess::Spawn(commandLine);
+    Ishiko::ChildProcess processHandle = Ishiko::ChildProcess::Spawn(commandLine);
     processHandle.waitForExit();
     int exitCode = processHandle.exitCode();
     if (exitCode != 0)
@@ -44,10 +41,10 @@ void MSBuildToolchain::build(const std::string& makefilePath) const
     }
 }
 
-void MSBuildToolchain::build(const std::string& makefilePath, Error& error) const noexcept
+void MSBuildToolchain::build(const std::string& makefilePath, Ishiko::Error& error) const noexcept
 {
     std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
-    ChildProcess processHandle = ChildProcess::Spawn(commandLine, error);
+    Ishiko::ChildProcess processHandle = Ishiko::ChildProcess::Spawn(commandLine, error);
     if (!error)
     {
         processHandle.waitForExit();
@@ -60,10 +57,10 @@ void MSBuildToolchain::build(const std::string& makefilePath, Error& error) cons
     }
 }
 
-void MSBuildToolchain::build(const std::string& makefilePath, const Environment& environment) const
+void MSBuildToolchain::build(const std::string& makefilePath, const Ishiko::Environment& environment) const
 {
     std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
-    ChildProcess processHandle = ChildProcess::Spawn(commandLine, environment);
+    Ishiko::ChildProcess processHandle = Ishiko::ChildProcess::Spawn(commandLine, environment);
     processHandle.waitForExit();
     int exitCode = processHandle.exitCode();
     if (exitCode != 0)
@@ -73,11 +70,11 @@ void MSBuildToolchain::build(const std::string& makefilePath, const Environment&
     }
 }
 
-void MSBuildToolchain::build(const std::string& makefilePath, const Environment& environment,
-    Error& error) const noexcept
+void MSBuildToolchain::build(const std::string& makefilePath, const Ishiko::Environment& environment,
+    Ishiko::Error& error) const noexcept
 {
     std::string commandLine = CreateCommandLine(m_msbuildPath, makefilePath);
-    ChildProcess processHandle = ChildProcess::Spawn(commandLine, environment, error);
+    Ishiko::ChildProcess processHandle = Ishiko::ChildProcess::Spawn(commandLine, environment, error);
     if (!error)
     {
         processHandle.waitForExit();

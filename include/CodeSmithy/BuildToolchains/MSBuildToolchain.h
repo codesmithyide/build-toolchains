@@ -8,7 +8,7 @@
 #define _CODESMITHYIDE_BUILDTOOLCHAINS_MSBUILDTOOLCHAIN_H_
 
 #include <Ishiko/Errors.hpp>
-#include <Ishiko/Process.h>
+#include <Ishiko/Process.hpp>
 #include <string>
 
 namespace CodeSmithy
@@ -21,8 +21,8 @@ public:
 
     void build(const std::string& makefilePath) const;
     void build(const std::string& makefilePath, Ishiko::Error& error) const noexcept;
-    void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const;
-    void build(const std::string& makefilePath, const Ishiko::Process::Environment& environment,
+    void build(const std::string& makefilePath, const Ishiko::Environment& environment) const;
+    void build(const std::string& makefilePath, const Ishiko::Environment& environment,
         Ishiko::Error& error) const noexcept;
 
 private:
