@@ -16,7 +16,7 @@ program CodeSmithyBuildToolchainsTests : CodeSmithyBuildToolchains, IshikoTestFr
     if ($(toolset) == gnu)
     {
         cxx-compiler-options = "-std=c++11";
-        libs += CodeSmithyBuildToolchains IshikoTestFramework IshikoTestFrameworkCore IshikoProcess IshikoText IshikoErrors boost_filesystem;
+        libs += CodeSmithyBuildToolchains IshikoTestFramework IshikoTestFrameworkCore IshikoConfiguration IshikoXML IshikoProcess IshikoText IshikoErrors boost_filesystem;
     }
 
     if ($(toolset) != gnu)
