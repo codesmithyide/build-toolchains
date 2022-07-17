@@ -1,13 +1,11 @@
 /*
-    Copyright (c) 2020 Xavier Leclercq
+    Copyright (c) 2020-2022 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
 
 #include "CMakeToolchain.h"
 #include "BuildToolchainErrorCategory.h"
-
-using namespace Ishiko::Process;
 
 namespace CodeSmithy
 {
@@ -55,17 +53,17 @@ CMakeToolchain::CMakeToolchain()
 {
 }
 
-void CMakeToolchain::generate(const std::string& makefilePath, const Ishiko::Process::Environment& environment) const
+void CMakeToolchain::generate(const std::string& makefilePath, const Ishiko::Environment& environment) const
 {
     CMakeGenerationOptions options;
     generate(makefilePath, options, environment);
 }
 
 void CMakeToolchain::generate(const std::string& makefilePath, const CMakeGenerationOptions& options,
-    const Ishiko::Process::Environment& environment) const
+    const Ishiko::Environment& environment) const
 {
     std::string  commandLine = CreateGenerationCommandLine(m_cmakePath, makefilePath, options);
-    ChildProcess process = ChildProcess::Spawn(commandLine, environment);
+    Ishiko::ChildProcess process = Ishiko::ChildProcess::Spawn(commandLine, environment);
     process.waitForExit();
     int exitCode = process.exitCode();
     if (exitCode != 0)
@@ -75,10 +73,10 @@ void CMakeToolchain::generate(const std::string& makefilePath, const CMakeGenera
     }
 }
 
-void CMakeToolchain::build(const std::string& makefilePath, const Environment& environment) const
+void CMakeToolchain::build(const std::string& makefilePath, const Ishiko::Environment& environment) const
 {
     std::string commandLine = CreateBuildCommandLine(m_cmakePath, makefilePath);
-    ChildProcess process = ChildProcess::Spawn(commandLine, environment);
+    Ishiko::ChildProcess process = Ishiko::ChildProcess::Spawn(commandLine, environment);
     process.waitForExit();
     int exitCode = process.exitCode();
     if (exitCode != 0)
