@@ -76,7 +76,7 @@ ISHIKO_CPP_ERRORS_ROOT ?= $(ISHIKO_CPP)/errors
 # Path to the Ishiko/C++ Memory installation
 ISHIKO_CPP_MEMORY_ROOT ?= $(ISHIKO_CPP)/memory
 # Path to the Boost installation
-ISHIKO_CPP_BOOST_ROOT ?= $(ISHIKO_CPP_THIRD_PARTY_BOOST)
+ISHIKO_CPP_BOOST_ROOT ?= $(BOOST_ROOT)
 # Path to the Ishiko/Text installation
 ISHIKO_CPP_TEXT_ROOT ?= $(ISHIKO_CPP)/text
 # Path to the Ishiko Process installation
@@ -91,19 +91,19 @@ all: ../bakefile/../../lib/lib$(if $(call _equal,$(config),Debug),CodeSmithyBuil
 	$(RANLIB) $@
 
 $(_builddir)CodeSmithyBuildToolchains_BuildToolchainErrorCategory.o: ../../src/BuildToolchainErrorCategory.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/BuildToolchainErrorCategory.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/BuildToolchainErrorCategory.cpp
 
 $(_builddir)CodeSmithyBuildToolchains_CMakeGenerationOptions.o: ../../src/CMakeGenerationOptions.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/CMakeGenerationOptions.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/CMakeGenerationOptions.cpp
 
 $(_builddir)CodeSmithyBuildToolchains_CMakeToolchain.o: ../../src/CMakeToolchain.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/CMakeToolchain.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/CMakeToolchain.cpp
 
 $(_builddir)CodeSmithyBuildToolchains_MakeToolchain.o: ../../src/MakeToolchain.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/MakeToolchain.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/MakeToolchain.cpp
 
 $(_builddir)CodeSmithyBuildToolchains_MSBuildToolchain.o: ../../src/MSBuildToolchain.cpp
-	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/MSBuildToolchain.cpp
+	$(CXX) -c -o $@ $(CPPFLAGS) $(CXXFLAGS) -MD -MP -fPIC -DPIC -pthread -I$(ISHIKO_CPP_MEMORY_ROOT)/include -I$(ISHIKO_CPP_BASEPLATFORM_ROOT)/include -I$(ISHIKO_CPP_ERRORS_ROOT)/include -I$(ISHIKO_CPP_BOOST_ROOT)/include -I$(ISHIKO_CPP_TEXT_ROOT)/include -I$(ISHIKO_CPP_PROCESS_ROOT)/include -I../../include/CodeSmithy/BuildToolchains -std=c++11 ../../src/MSBuildToolchain.cpp
 
 clean:
 	rm -f $(_builddir)*.o

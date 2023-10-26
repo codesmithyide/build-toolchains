@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2020 Xavier Leclercq
+    Copyright (c) 2020-2023 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
@@ -36,8 +36,8 @@ void MSBuildToolchain::build(const std::string& makefilePath) const
     int exitCode = processHandle.exitCode();
     if (exitCode != 0)
     {
-        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code "
-            + std::to_string(exitCode), __FILE__, __LINE__);
+        Throw(BuildToolchainErrorCategory::Value::build_error, "Process launched by " + commandLine
+            + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
     }
 }
 
@@ -51,7 +51,7 @@ void MSBuildToolchain::build(const std::string& makefilePath, Ishiko::Error& err
         int exitCode = processHandle.exitCode();
         if (exitCode != 0)
         {
-            Fail(error, BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine
+            Fail(error, BuildToolchainErrorCategory::Value::build_error, "Process launched by " + commandLine
                 + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
         }
     }
@@ -65,8 +65,8 @@ void MSBuildToolchain::build(const std::string& makefilePath, const Ishiko::Envi
     int exitCode = processHandle.exitCode();
     if (exitCode != 0)
     {
-        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code "
-            + std::to_string(exitCode), __FILE__, __LINE__);
+        Throw(BuildToolchainErrorCategory::Value::build_error, "Process launched by " + commandLine
+            + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
     }
 }
 
@@ -81,7 +81,7 @@ void MSBuildToolchain::build(const std::string& makefilePath, const Ishiko::Envi
         int exitCode = processHandle.exitCode();
         if (exitCode != 0)
         {
-            Fail(error, BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine
+            Fail(error, BuildToolchainErrorCategory::Value::build_error, "Process launched by " + commandLine
                 + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
         }
     }
