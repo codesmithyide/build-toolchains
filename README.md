@@ -4,7 +4,7 @@ This project contains code to compile and link code using different toolchains s
 
 ## License
 
-Copyright (c) 2020-2022 Xavier Leclercq
+Copyright (c) 2020-2023 Xavier Leclercq
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
