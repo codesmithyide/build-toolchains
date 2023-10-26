@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2020-2022 Xavier Leclercq
+    Copyright (c) 2020-2023 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
@@ -16,24 +16,25 @@ namespace CodeSmithy
 class BuildToolchainErrorCategory : public Ishiko::ErrorCategory
 {
 public:
-    enum EErrorValues
+    enum class Value
     {
-        eGeneric = -1,
-        eBuildError = -2
+        generic_error = -1,
+        build_error = -2
     };
 
     static const BuildToolchainErrorCategory& Get() noexcept;
 
     const char* name() const noexcept override;
+    std::ostream& streamOut(int value, std::ostream& os) const override;
 
 private:
     BuildToolchainErrorCategory() noexcept = default;
 };
 
-void Fail(Ishiko::Error& error, BuildToolchainErrorCategory::EErrorValues value) noexcept;
-void Fail(Ishiko::Error& error, BuildToolchainErrorCategory::EErrorValues value, const std::string& message,
+void Fail(Ishiko::Error& error, BuildToolchainErrorCategory::Value value) noexcept;
+void Fail(Ishiko::Error& error, BuildToolchainErrorCategory::Value value, const std::string& message,
     const char* file, int line) noexcept;
-void Throw(BuildToolchainErrorCategory::EErrorValues value, const std::string& message, const char* file, int line);
+void Throw(BuildToolchainErrorCategory::Value value, const std::string& message, const char* file, int line);
 
 }
 

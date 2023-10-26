@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2020-2022 Xavier Leclercq
+    Copyright (c) 2020-2023 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
@@ -68,8 +68,8 @@ void CMakeToolchain::generate(const std::string& makefilePath, const CMakeGenera
     int exitCode = process.exitCode();
     if (exitCode != 0)
     {
-        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code "
-            + std::to_string(exitCode), __FILE__, __LINE__);
+        Throw(BuildToolchainErrorCategory::Value::build_error, "Process launched by " + commandLine
+            + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
     }
 }
 
@@ -81,8 +81,8 @@ void CMakeToolchain::build(const std::string& makefilePath, const Ishiko::Enviro
     int exitCode = process.exitCode();
     if (exitCode != 0)
     {
-        Throw(BuildToolchainErrorCategory::eBuildError, "Process launched by " + commandLine + " exited with code "
-            + std::to_string(exitCode), __FILE__, __LINE__);
+        Throw(BuildToolchainErrorCategory::Value::build_error, "Process launched by " + commandLine
+            + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
     }
 }
 

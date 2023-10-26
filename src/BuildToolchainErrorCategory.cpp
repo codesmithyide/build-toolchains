@@ -22,20 +22,39 @@ const char* BuildToolchainErrorCategory::name() const noexcept
     return "CodeSmithy::BuildToolchainErrorCategory";
 }
 
-void Fail(Error& error, BuildToolchainErrorCategory::EErrorValues value) noexcept
+std::ostream& BuildToolchainErrorCategory::streamOut(int value, std::ostream& os) const
 {
-    error.fail(value, BuildToolchainErrorCategory::Get());
+    switch (static_cast<Value>(value))
+    {
+    case Value::generic_error:
+        os << "generic error";
+        break;
+
+    case Value::build_error:
+        os << "build error";
+        break;
+
+    default:
+        os << "unknown value";
+        break;
+    }
+    return os;
 }
 
-void Fail(Error& error, BuildToolchainErrorCategory::EErrorValues value, const std::string& message, const char* file,
+void Fail(Error& error, BuildToolchainErrorCategory::Value value) noexcept
+{
+    error.fail(BuildToolchainErrorCategory::Get(), static_cast<int>(value));
+}
+
+void Fail(Error& error, BuildToolchainErrorCategory::Value value, const std::string& message, const char* file,
     int line) noexcept
 {
-    error.fail(value, BuildToolchainErrorCategory::Get(), message, file, line);
+    error.fail(BuildToolchainErrorCategory::Get(), static_cast<int>(value), message, file, line);
 }
 
-void Throw(BuildToolchainErrorCategory::EErrorValues value, const std::string& message, const char* file, int line)
+void Throw(BuildToolchainErrorCategory::Value value, const std::string& message, const char* file, int line)
 {
-    throw Exception(value, BuildToolchainErrorCategory::Get(), message, file, line);
+    throw Exception(static_cast<int>(value), BuildToolchainErrorCategory::Get(), message, file, line);
 }
 
 }
