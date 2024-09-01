@@ -1,5 +1,5 @@
 /*
-    Copyright (c) 2020 Xavier Leclercq
+    Copyright (c) 2020-2024 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
@@ -22,23 +22,19 @@ const char* BuildToolchainErrorCategory::name() const noexcept
     return "CodeSmithy::BuildToolchainErrorCategory";
 }
 
-std::ostream& BuildToolchainErrorCategory::streamOut(int value, std::ostream& os) const
+const char* BuildToolchainErrorCategory::message(int ev, char* buffer, size_t len) const noexcept
 {
-    switch (static_cast<Value>(value))
+    switch (static_cast<Value>(ev))
     {
     case Value::generic_error:
-        os << "generic error";
-        break;
+        return "generic error";
 
     case Value::build_error:
-        os << "build error";
-        break;
+        return "build error";
 
     default:
-        os << "unknown value";
-        break;
+        return "unknown value";
     }
-    return os;
 }
 
 void Fail(Error& error, BuildToolchainErrorCategory::Value value) noexcept
