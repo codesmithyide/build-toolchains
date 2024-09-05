@@ -1,11 +1,11 @@
 /*
-    Copyright (c) 2020-2023 Xavier Leclercq
+    Copyright (c) 2020-2024 Xavier Leclercq
     Released under the MIT License
     See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
 */
 
-#ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAINERRORCATEGORY_H_
-#define _CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAINERRORCATEGORY_H_
+#ifndef GUARD_CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAINERRORCATEGORY_H
+#define GUARD_CODESMITHYIDE_BUILDTOOLCHAINS_BUILDTOOLCHAINERRORCATEGORY_H
 
 #include <Ishiko/Errors.hpp>
 #include <string>
@@ -25,7 +25,7 @@ public:
     static const BuildToolchainErrorCategory& Get() noexcept;
 
     const char* name() const noexcept override;
-    std::ostream& streamOut(int value, std::ostream& os) const override;
+    const char* message(int ev, char* buffer, size_t len) const noexcept override;
 
 private:
     BuildToolchainErrorCategory() noexcept = default;
