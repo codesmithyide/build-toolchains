@@ -24,7 +24,7 @@ std::string CreateCommandLine(const std::string& msbuildPath, const std::string&
 }
 
 MSBuildToolchain::MSBuildToolchain()
-    : m_msbuildPath("C:\\Program Files (x86)\\Microsoft Visual Studio\\2017\\Community\\MSBuild\\15.0\\Bin\\MSBuild.exe")
+    : m_msbuildPath("C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\MSBuild.exe")
 {
 }
 
