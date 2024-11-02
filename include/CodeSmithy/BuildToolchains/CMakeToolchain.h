@@ -1,11 +1,8 @@
-/*
-    Copyright (c) 2020-2022 Xavier Leclercq
-    Released under the MIT License
-    See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
-*/
+// SPDX-FileCopyrightText: 2020-2024 Xavier Leclercq
+// SPDX-License-Identifier: MIT
 
-#ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_CMAKETOOLCHAIN_H_
-#define _CODESMITHYIDE_BUILDTOOLCHAINS_CMAKETOOLCHAIN_H_
+#ifndef GUARD_CODESMITHYIDE_BUILDTOOLCHAINS_CMAKETOOLCHAIN_H
+#define GUARD_CODESMITHYIDE_BUILDTOOLCHAINS_CMAKETOOLCHAIN_H
 
 #include "CMakeGenerationOptions.h"
 #include <Ishiko/Process.hpp>
@@ -13,22 +10,20 @@
 
 namespace CodeSmithy
 {
+    class CMakeToolchain
+    {
+    public:
+        CMakeToolchain();
 
-class CMakeToolchain
-{
-public:
-    CMakeToolchain();
+        void generate(const std::string& makefilePath, const Ishiko::Environment& environment) const;
+        void generate(const std::string& makefilePath, const CMakeGenerationOptions& options,
+            const Ishiko::Environment& environment) const;
 
-    void generate(const std::string& makefilePath, const Ishiko::Environment& environment) const;
-    void generate(const std::string& makefilePath, const CMakeGenerationOptions& options,
-        const Ishiko::Environment& environment) const;
+        void build(const std::string& makefilePath, const Ishiko::Environment& environment) const;
 
-    void build(const std::string& makefilePath, const Ishiko::Environment& environment) const;
-
-private:
-    std::string m_cmakePath;
-};
-
+    private:
+        std::string m_cmakePath;
+    };
 }
 
 #include "linkoptions.h"

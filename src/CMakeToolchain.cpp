@@ -1,8 +1,5 @@
-/*
-    Copyright (c) 2020-2023 Xavier Leclercq
-    Released under the MIT License
-    See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
-*/
+// SPDX-FileCopyrightText: 2020-2024 Xavier Leclercq
+// SPDX-License-Identifier: MIT
 
 #include "CMakeToolchain.h"
 #include "BuildToolchainErrorCategory.h"
@@ -22,6 +19,13 @@ std::string CreateGenerationCommandLine(const std::string& cmakePath, const std:
     {
         commandLine.append(" -G \"");
         commandLine.append(*generatorName);
+        commandLine.append("\"");
+    }
+    boost::optional<std::string> architecture_name = options.architectureName();
+    if (architecture_name)
+    {
+        commandLine.append(" -A \"");
+        commandLine.append(*architecture_name);
         commandLine.append("\"");
     }
     commandLine.append(" -S ");

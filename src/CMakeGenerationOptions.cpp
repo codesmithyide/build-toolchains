@@ -1,32 +1,31 @@
-/*
-    Copyright (c) 2020 Xavier Leclercq
-    Released under the MIT License
-    See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
-*/
+// SPDX-FileCopyrightText: 2020-2024 Xavier Leclercq
+// SPDX-License-Identifier: MIT
 
 #include "CMakeGenerationOptions.h"
 
-namespace CodeSmithy
-{
+using namespace CodeSmithy;
 
 CMakeGenerationOptions::CMakeGenerationOptions()
 {
 }
 
-CMakeGenerationOptions::CMakeGenerationOptions(const std::string& generatorName,
-    const std::map<std::string, std::string>& cacheEntries)
-    : m_generatorName(generatorName), m_cacheEntries(cacheEntries)
+CMakeGenerationOptions::CMakeGenerationOptions(const std::string& generator_name, const std::string& architecture_name,
+    const std::map<std::string, std::string>& cache_entries)
+    : m_generator_name(generator_name), m_architecture_name(architecture_name), m_cache_entries(cache_entries)
 {
 }
 
 const boost::optional<std::string>& CMakeGenerationOptions::generatorName() const
 {
-    return m_generatorName;
+    return m_generator_name;
+}
+
+const boost::optional<std::string>& CMakeGenerationOptions::architectureName() const
+{
+    return m_architecture_name;
 }
 
 const std::map<std::string, std::string> CMakeGenerationOptions::cacheEntries() const
 {
-    return m_cacheEntries;
-}
-
+    return m_cache_entries;
 }
