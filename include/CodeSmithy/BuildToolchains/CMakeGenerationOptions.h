@@ -1,11 +1,8 @@
-/*
-    Copyright (c) 2020 Xavier Leclercq
-    Released under the MIT License
-    See https://github.com/codesmithyide/build-toolchains/blob/main/LICENSE.txt
-*/
+// SPDX-FileCopyrightText: 2020-2024 Xavier Leclercq
+// SPDX-License-Identifier: MIT
 
-#ifndef _CODESMITHYIDE_BUILDTOOLCHAINS_CMAKEGENERATIONOPTIONS_H_
-#define _CODESMITHYIDE_BUILDTOOLCHAINS_CMAKEGENERATIONOPTIONS_H_
+#ifndef GUARD_CODESMITHYIDE_BUILDTOOLCHAINS_CMAKEGENERATIONOPTIONS_H
+#define GUARD_CODESMITHYIDE_BUILDTOOLCHAINS_CMAKEGENERATIONOPTIONS_H
 
 #include <boost/optional/optional.hpp>
 #include <map>
@@ -13,21 +10,22 @@
 
 namespace CodeSmithy
 {
+    class CMakeGenerationOptions
+    {
+    public:
+        CMakeGenerationOptions();
+        CMakeGenerationOptions(const std::string& generator_name, const std::string& architecture_name,
+            const std::map<std::string, std::string>& cache_entries);
 
-class CMakeGenerationOptions
-{
-public:
-    CMakeGenerationOptions();
-    CMakeGenerationOptions(const std::string& generatorName, const std::map<std::string, std::string>& cacheEntries);
+        const boost::optional<std::string>& generatorName() const;
+        const boost::optional<std::string>& architectureName() const;
+        const std::map<std::string, std::string> cacheEntries() const;
 
-    const boost::optional<std::string>& generatorName() const;
-    const std::map<std::string, std::string> cacheEntries() const;
-
-private:
-    boost::optional<std::string> m_generatorName;
-    std::map<std::string, std::string> m_cacheEntries;
-};
-
+    private:
+        boost::optional<std::string> m_generator_name;
+        boost::optional<std::string> m_architecture_name;
+        std::map<std::string, std::string> m_cache_entries;
+    };
 }
 
 #endif
