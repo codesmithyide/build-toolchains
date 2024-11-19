@@ -3,6 +3,7 @@
 
 #include "CMakeToolchain.h"
 #include "BuildToolchainErrorCategory.h"
+#include <Ishiko/BasePlatform.hpp>
 
 using namespace CodeSmithy;
 
@@ -50,7 +51,14 @@ namespace
 }
 
 CMakeToolchain::CMakeToolchain()
+// TODO: proper way to configure the cmake path
+#if ISHIKO_OS == ISHIKO_OS_LINUX
     : m_cmakePath("/usr/local/bin/cmake")
+#elif ISHIKO_OS == ISHIKO_OS_WINDOWS
+    : m_cmakePath("cmake")
+#else
+#error Unsupported or unrecognized OS
+#endif
 {
 }
 
