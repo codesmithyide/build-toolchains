@@ -47,7 +47,7 @@ void CMakeToolchainTests::GenerateTest2(Ishiko::Test& test)
     CMakeToolchain toolchain;
 
 #if ISHIKO_OS == ISHIKO_OS_LINUX
-    CMakeGenerationOptions options("Unix Makefiles", "x64", {});
+    CMakeGenerationOptions options("Unix Makefiles", "", {});
 #elif ISHIKO_OS == ISHIKO_OS_WINDOWS
     CMakeGenerationOptions options("Visual Studio 17 2022", "x64", {});
 #else
