@@ -4,6 +4,7 @@
 #include "MakeToolchainTests.h"
 #include "MSBuildToolchainTests.h"
 #include "CMakeToolchainTests.h"
+#include "CodeSmithy/BuildToolchains/linkoptions.hpp"
 #include <Ishiko/TestFramework.hpp>
 #include <exception>
 
