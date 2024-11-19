@@ -50,7 +50,7 @@ namespace
 }
 
 CMakeToolchain::CMakeToolchain()
-    : m_cmakePath("cmake")
+    : m_cmakePath("/usr/local/bin/cmake")
 {
 }
 
