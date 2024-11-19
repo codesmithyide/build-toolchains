@@ -26,6 +26,4 @@ namespace CodeSmithy
     };
 }
 
-#include "linkoptions.h"
-
 #endif
