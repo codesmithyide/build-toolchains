@@ -157,11 +157,11 @@
     <ClCompile Include="..\..\src\MSBuildToolchain.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains.h" />
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains.hpp" />
     <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h" />
     <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\CMakeGenerationOptions.h" />
     <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\CMakeToolchain.h" />
-    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\linkoptions.h" />
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\linkoptions.hpp" />
     <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\MakeToolchain.h" />
     <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\MSBuildToolchain.h" />
   </ItemGroup>

@@ -32,11 +32,11 @@ library CodeSmithyBuildToolchains : IshikoProcess
 
     headers
     {
-        ../../include/CodeSmithy/BuildToolchains.h
+        ../../include/CodeSmithy/BuildToolchains.hpp
         ../../include/CodeSmithy/BuildToolchains/BuildToolchainErrorCategory.h
         ../../include/CodeSmithy/BuildToolchains/CMakeGenerationOptions.h
         ../../include/CodeSmithy/BuildToolchains/CMakeToolchain.h
-        ../../include/CodeSmithy/BuildToolchains/linkoptions.h
+        ../../include/CodeSmithy/BuildToolchains/linkoptions.hpp
         ../../include/CodeSmithy/BuildToolchains/MakeToolchain.h
         ../../include/CodeSmithy/BuildToolchains/MSBuildToolchain.h
     }

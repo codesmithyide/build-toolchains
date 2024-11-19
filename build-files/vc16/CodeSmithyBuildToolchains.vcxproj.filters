@@ -17,7 +17,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains.h">
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\BuildToolchainErrorCategory.h">
@@ -29,7 +29,7 @@
     <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\CMakeToolchain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\linkoptions.h">
+    <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\linkoptions.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\CodeSmithy\BuildToolchains\MakeToolchain.h">
