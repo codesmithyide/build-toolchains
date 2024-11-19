@@ -4,52 +4,49 @@
 #include "CMakeToolchain.h"
 #include "BuildToolchainErrorCategory.h"
 
-namespace CodeSmithy
-{
+using namespace CodeSmithy;
 
 namespace
 {
-
-std::string CreateGenerationCommandLine(const std::string& cmakePath, const std::string& makefilePath,
-    const CMakeGenerationOptions& options)
-{
-    std::string commandLine = cmakePath;
-    boost::optional<std::string> generatorName = options.generatorName();
-    if (generatorName)
+    std::string CreateGenerationCommandLine(const std::string& cmakePath, const std::string& makefilePath,
+        const CMakeGenerationOptions& options)
     {
-        commandLine.append(" -G \"");
-        commandLine.append(*generatorName);
-        commandLine.append("\"");
+        std::string commandLine = cmakePath;
+        boost::optional<std::string> generatorName = options.generatorName();
+        if (generatorName)
+        {
+            commandLine.append(" -G \"");
+            commandLine.append(*generatorName);
+            commandLine.append("\"");
+        }
+        boost::optional<std::string> architecture_name = options.architectureName();
+        if (architecture_name)
+        {
+            commandLine.append(" -A \"");
+            commandLine.append(*architecture_name);
+            commandLine.append("\"");
+        }
+        commandLine.append(" -S ");
+        commandLine.append(boost::filesystem::path(makefilePath).parent_path().string());
+        commandLine.append(" -B ");
+        commandLine.append(boost::filesystem::path(makefilePath).parent_path().string());
+        for (const std::pair<std::string, std::string>& cacheEntry : options.cacheEntries())
+        {
+            commandLine.append(" -D");
+            commandLine.append(cacheEntry.first);
+            commandLine.append("=");
+            commandLine.append(cacheEntry.second);
+        }
+        return commandLine;
     }
-    boost::optional<std::string> architecture_name = options.architectureName();
-    if (architecture_name)
-    {
-        commandLine.append(" -A \"");
-        commandLine.append(*architecture_name);
-        commandLine.append("\"");
-    }
-    commandLine.append(" -S ");
-    commandLine.append(boost::filesystem::path(makefilePath).parent_path().string());
-    commandLine.append(" -B ");
-    commandLine.append(boost::filesystem::path(makefilePath).parent_path().string());
-    for (const std::pair<std::string, std::string>& cacheEntry : options.cacheEntries())
-    {
-        commandLine.append(" -D");
-        commandLine.append(cacheEntry.first);
-        commandLine.append("=");
-        commandLine.append(cacheEntry.second);
-    }
-    return commandLine;
-}
 
-std::string CreateBuildCommandLine(const std::string& cmakePath, const std::string& makefilePath)
-{
-    std::string commandLine = cmakePath;
-    commandLine.append(" --build ");
-    commandLine.append(boost::filesystem::path(makefilePath).parent_path().string());
-    return commandLine;
-}
-
+    std::string CreateBuildCommandLine(const std::string& cmakePath, const std::string& makefilePath)
+    {
+        std::string commandLine = cmakePath;
+        commandLine.append(" --build ");
+        commandLine.append(boost::filesystem::path(makefilePath).parent_path().string());
+        return commandLine;
+    }
 }
 
 CMakeToolchain::CMakeToolchain()
@@ -88,6 +85,4 @@ void CMakeToolchain::build(const std::string& makefilePath, const Ishiko::Enviro
         Throw(BuildToolchainErrorCategory::Value::build_error, "Process launched by " + commandLine
             + " exited with code " + std::to_string(exitCode), __FILE__, __LINE__);
     }
-}
-
 }
