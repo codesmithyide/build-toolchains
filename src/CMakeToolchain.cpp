@@ -36,11 +36,17 @@ namespace
         return command_line;
     }
 
-    Ishiko::CommandLine CreateBuildCommandLine(const std::string& cmake_path, const std::string& makefile_path)
+    Ishiko::CommandLine CreateBuildCommandLine(const std::string& cmake_path, const std::string& makefile_path,
+        const std::string* target)
     {
         Ishiko::CommandLine command_line(cmake_path);
         command_line.appendArgument("--build");
         command_line.appendArgument(boost::filesystem::path(makefile_path).parent_path().string());
+        if (target)
+        {
+            command_line.appendArgument("--target");
+            command_line.appendArgument(*target);
+        }
         return command_line;
     }
 }
@@ -79,9 +85,25 @@ void CMakeToolchain::generate(const std::string& makefilePath, const CMakeGenera
     }
 }
 
-void CMakeToolchain::build(const std::string& makefilePath, const Ishiko::Environment& environment) const
+void CMakeToolchain::build(const std::string& makefile_path, const Ishiko::Environment& environment) const
 {
-    Ishiko::CommandLine command_line = CreateBuildCommandLine(m_cmakePath, makefilePath);
+    Ishiko::CommandLine command_line = CreateBuildCommandLine(m_cmakePath, makefile_path, nullptr);
+    Ishiko::ChildProcessBuilder process_builder(command_line, environment);
+    Ishiko::ChildProcess process = process_builder.start();
+    process.waitForExit();
+    int exit_code = process.exitCode();
+    if (exit_code != 0)
+    {
+        Throw(BuildToolchainErrorCategory::Value::build_error, "Process launched by "
+            + command_line.toString(Ishiko::CommandLine::Mode::quote_if_needed) + " exited with code "
+            + std::to_string(exit_code), __FILE__, __LINE__);
+    }
+}
+
+void CMakeToolchain::build(const std::string& makefile_path, const std::string& target,
+    const Ishiko::Environment& environment) const
+{
+    Ishiko::CommandLine command_line = CreateBuildCommandLine(m_cmakePath, makefile_path, &target);
     Ishiko::ChildProcessBuilder process_builder(command_line, environment);
     Ishiko::ChildProcess process = process_builder.start();
     process.waitForExit();
